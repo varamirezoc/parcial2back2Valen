@@ -1,6 +1,5 @@
 package com.example.parcial2.models.mappers;
 
-import com.example.parcial2.models.Cine;
 import com.example.parcial2.models.Sala;
 import com.example.parcial2.models.dtos.SalaDTO;
 import org.mapstruct.Mapper;
