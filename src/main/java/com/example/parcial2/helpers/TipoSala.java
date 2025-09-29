@@ -1,6 +1,6 @@
 package com.example.parcial2.helpers;
 
-public enum tipoSala {
+public enum TipoSala {
     DOS_D,
     TRES_D,
     IMAX,

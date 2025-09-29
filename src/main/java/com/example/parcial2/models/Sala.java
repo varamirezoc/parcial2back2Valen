@@ -1,6 +1,7 @@
 package com.example.parcial2.models;
 
-import com.example.parcial2.helpers.tipoSala;
+import com.example.parcial2.helpers.TipoSala;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,18 +11,25 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class Sala {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "nombre", length = 50, nullable = false)
     private String nombre;
-    private Integer capacidad;
-    private tipoSala tipo; // 2D, 3D, IMAX...
 
+    @Column(name = "capacidad", nullable = false)
+    private Integer capacidad;
+
+    @Column(name = "tipoSala", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private TipoSala tipoSala; // 2D, 3D, IMAX...
+
+    // Relacion muchos a uno con Cine
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "cine_id", nullable = false)
+    @JoinColumn(name = "fk_cine", referencedColumnName = "id", nullable = false)
+    @JsonManagedReference(value = "relacionCineSala")
     private Cine cine;
 }
