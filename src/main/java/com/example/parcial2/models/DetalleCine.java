@@ -31,6 +31,4 @@ public class DetalleCine {
     @JsonManagedReference(value = "relacionDetalleCineCine")
     private Cine cine;
 
-
-
 }
