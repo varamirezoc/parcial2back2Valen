@@ -1,4 +1,6 @@
-package com.example.parcial2;
+package com.example.parcial2.models;
+
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "salas")
